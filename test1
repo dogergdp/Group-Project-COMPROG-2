@@ -1,0 +1,32 @@
+#include <stdio.h
+
+
+int main() {
+  int arr_scores[5][5] = {};
+  int i, j; //index
+  int score; //to store input score
+
+  for (i=0; i<5; i++)
+  {
+    printf("Enter the scores of Student %d:\n", i+1);
+    for (j=0; j<5; j++) {
+      do {
+        scanf("%d", &score);
+        if (score < 50 || score > 100) {
+          printf("Invalid score. Please enter a score between 50 and 100:\n");
+        }
+      } while (score < 50 || score > 100);
+      arr_scores[i][j] = score;
+    }
+  }
+
+
+  for (i=0; i<5; i++) {
+    for (j=0; j<5; j++) {
+      printf("%d ", arr_scores[i][j]);
+    }
+    printf("\n");
+  }
+
+  return 0;
+}
