@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+int main() {
+  int arr_scores[5][5] = {};
+  int i, j; // index
+  int score; // to store input score
+  float ave[5] = {}; // to get the average of each student
+  int highest[5] = {}; // to get the highest score of each student
+  int lowest[5] = {}; // to get the lowest score of each student
+  int count_passers = 0; // keeps track of the number of passers
+  char id[5][10] = {}; // to store the ID number of each student. 
+
+  for (i=0; i<5; i++) {
+    printf("Enter the ID number of Student %d: ", i+1);
+    scanf("%s", id[i]);
+    printf("Enter the scores of Student %s:\n", id[i]);
+  
+    for (j=0; j<5; j++) {
+      printf("Quiz #%d:\n", j+1);
+      do {
+        scanf("%d", &score);
+        if (score < 50 || score > 100) {
+          printf("Invalid score. Please enter a score between 50 and 100:\n");
+        }
+      } while (score < 50 || score > 100);
+      arr_scores[i][j] = score;
+     
+      ave[i] += score; // add the score to the total of the current student
+
+      // Check for the highest score of the current student
+      if (j == 0 || highest[i] < score) {
+        highest[i] = score;
+      }
+
+      // Check for the lowest score of the current student
+      if (j == 0 || lowest[i] > score) {
+        lowest[i] = score;
+      }
+    }
+    ave[i] /= 5; // divide the total by the number of scores of the student to get the average
+
+    printf("Student %d (ID %s):\n", i+1, id[i]);
+    printf("  - Average score: %.2f\n", ave[i]);
+    printf("  - Highest score: %d\n", highest[i]);
+    printf("  - Lowest score: %d\n", lowest[i]);
+
+    // Display Pass or Fail based on the average
+    if (ave[i] >= 75) {
+      printf("  - Passed\n");
+      count_passers++;
+    } else {
+      printf("  - Failed\n");
+    }
+  }
+
+  printf("Number of Passers: %d", count_passers);
+
+  return 0;
+}
