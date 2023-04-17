@@ -31,7 +31,7 @@ int main() {
                                                     {51, 57, 63, 69, 75},
                                                     {52, 58, 64, 70, 76},
                                                     {53, 59, 65, 71, 77}    };
-    const char id[NUM_OF_STUDENTS][14] = {   "TUPM-22-1234",
+    const char id[NUM_OF_STUDENTS][20] = {   "TUPM-22-1234",
                                              "TUPM-22-1234",
                                              "TUPM-22-1334",
                                              "TUPM-22-1134",
