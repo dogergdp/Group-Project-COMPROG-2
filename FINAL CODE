@@ -3,6 +3,9 @@
 
 #define NUM_OF_STUDENTS 5
 #define NUM_OF_QUIZZES 5
+#define MAX_SCORE 100
+#define MIN_SCORE 50
+#define PASS_SCORE 75
 
 
 void print_line(char CHAR, int length){
@@ -48,7 +51,7 @@ banner();
     for (j=0; j<NUM_OF_QUIZZES; j++) {
       printf("Quiz #%d:\n", j+1);
       result = scanf("%d", &score);
-      while (result != 1 || score < 50 || score > 100) {
+      while (result != 1 || score < MIN_SCORE || score > MAX_SCORE) {
         if (result == EOF) {
           printf("End of input reached. Exiting program.\n");
           return 0;
@@ -76,7 +79,7 @@ banner();
         lowest[i] = score;
       }
     }
-    ave[i] /= 5; // divide the total by the number of scores of the student to get the average
+    ave[i] /= NUM_OF_QUIZZES; // divide the total by the number of scores of the student to get the average
   }
 
     printf("\n");
@@ -92,7 +95,7 @@ banner();
     
     printf("||  %-9.2f||  %-9d||  %-8d||", ave[i], highest[i], lowest[i]);
     
-        if (ave[i] >= 75) {
+        if (ave[i] >= PASS_SCORE) {
           printf("  PASSED  ||\n");
           count_passers++;
         } 
