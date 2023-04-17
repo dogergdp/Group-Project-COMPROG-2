@@ -1,13 +1,14 @@
-#include <stdio.h
-
+#include <stdio.h>
 
 int main() {
   int arr_scores[5][5] = {};
-  int i, j; //index
-  int score; //to store input score
+  int i, j; // index
+  int score; // to store input score
+  float ave[5] = {}; // to get the average of each student
+  int highest[5] = {}; // to get the highest score of each student
+  int lowest[5] = {}; // to get the lowest score of each student
 
-  for (i=0; i<5; i++)
-  {
+  for (i=0; i<5; i++) {
     printf("Enter the scores of Student %d:\n", i+1);
     for (j=0; j<5; j++) {
       do {
@@ -17,15 +18,30 @@ int main() {
         }
       } while (score < 50 || score > 100);
       arr_scores[i][j] = score;
-    }
-  }
+      ave[i] += score; // add the score to the total of the current student
 
+      // Check for the highest score of the current student
+      if (j == 0 || highest[i] < score) {
+        highest[i] = score;
+      }
 
-  for (i=0; i<5; i++) {
-    for (j=0; j<5; j++) {
-      printf("%d ", arr_scores[i][j]);
+      // Check for the lowest score of the current student
+      if (j == 0 || lowest[i] > score) {
+        lowest[i] = score;
+      }
     }
-    printf("\n");
+    ave[i] /= 5; // divide the total by the number of scores of the student to get the average
+
+    printf("The average of Student %d is: %.2f\n", i+1, ave[i]);
+    printf("The highest score of Student %d is: %d\n", i+1, highest[i]);
+    printf("The lowest score of Student %d is: %d\n", i+1, lowest[i]);
+
+    // Display Pass or Fail based on the average
+    if (ave[i] >= 75) {
+      printf("Student %d has Passed\n", i+1);
+    } else {
+      printf("Student %d has Failed\n", i+1);
+    }
   }
 
   return 0;
