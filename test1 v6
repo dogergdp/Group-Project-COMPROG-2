@@ -2,7 +2,7 @@
 
 int main() {
   int arr_scores[5][5] = {};
-  char id[5][10] = {}; // to store the ID number of each student. 
+  char id[5][20] = {}; // to store the ID number of each student. 
   int i, j; // index
   int score; // to store input score
   float ave[5] = {}; // to get the average of each student
@@ -50,30 +50,33 @@ printf("|__/|__/_____/_____/|____/|____/_/  /_/_____/    /_/  |____/   |___|_|__
     ave[i] /= 5; // divide the total by the number of scores of the student to get the average
   }
 
-  for (i=0; i<135; i++) {
+  for (i=0; i<140; i++) {
     printf("=");}
     printf("\n");
-    for (j=0; j<135; j++) {
+    for (j=0; j<140; j++) {
   printf("=");
 }
     printf("\n");
-    printf("||  ID NUMBER  ||  QUIZ #1  ||  QUIZ #2  ||  QUIZ #3  ||  QUIZ #4  || QUIZ #5   ||  Average  ||  Highest  ||  Lowest  ||  Status  ||\n");
-  for (i=0; i<135; i++) {
+    printf("||      ID NUMBER      ||  QUIZ #1  ||  QUIZ #2  ||  QUIZ #3  ||  QUIZ #4  || QUIZ #5   ||  Average  ||  Highest  ||  Lowest  ||  Status  ||\n");
+  for (i=0; i<140; i++) {
     printf("=");}
     printf("\n");
   for (i=0; i<5; i++) {
-    printf("|| %-12s", id[i]);
+    printf("|| %-20s", id[i]);
     for (j=0; j<5; j++) {
       printf("||  %-9d", arr_scores[i][j]);
     }
     printf("||  %-9.2f||  %-9d||  %-8d||", ave[i], highest[i], lowest[i]);
     if (ave[i] >= 75) {
-      printf("  Passed  ||\n");
+      printf("  PASSED  ||\n");
       count_passers++;
     } else {
-      printf("  Failed  ||\n");
+      printf("  FAILED  ||\n");
     }
   }
+   for (i=0; i<140; i++) {
+    printf("=");}
+    printf("\n");
   printf("==============================================================\n");
   printf("||  Number of Passers: %-38d|\n", count_passers);
   printf("==============================================================\n");
