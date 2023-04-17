@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main() {
+  int arr_scores[5][5] = {  {50, 55, 60, 65, 70},
+                            {75, 80, 85, 90, 95},
+                            {51, 57, 63, 69, 75},
+                            {52, 58, 64, 70, 76},
+                            {53, 59, 65, 71, 77}, };
+  int i, j; // index
+  float ave[5] = {}; // to get the average of each student
+  int highest[5] = {}; // to get the highest score of each student
+  int lowest[5] = {}; // to get the lowest score of each student
+  int pass_count = 0; // to count the number of students who passed
+
+  for (i=0; i<5; i++) {
+    for (j=0; j<5; j++) {
+      int score = arr_scores[i][j];
+      ave[i] += score; // add the score to the total of the current student
+
+      // Check for the highest score of the current student
+      if (j == 0 || highest[i] < score) {
+        highest[i] = score;
+      }
+
+      // Check for the lowest score of the current student
+      if (j == 0 || lowest[i] > score) {
+        lowest[i] = score;
+      }
+    }
+    ave[i] /= 5; // divide the total by the number of scores of the student to get the average
+
+    printf("Student %d:\n", i+1);
+    printf("  Average Score: %.2f\n", ave[i]);
+    printf("  Highest Score: %d\n", highest[i]);
+    printf("  Lowest Score: %d\n", lowest[i]);
+
+    // Display Pass or Fail based on the average
+    if (ave[i] >= 75) {
+      printf("  Status: Pass\n");
+      pass_count++;
+    } else {
+      printf("  Status: Fail\n");
+    }
+  }
+
+  printf("Number of Passers: %d\n", pass_count);
+
+  return 0;
+}
