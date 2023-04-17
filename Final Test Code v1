@@ -2,7 +2,9 @@
 
 #define NUM_OF_STUDENTS 5
 #define NUM_OF_QUIZZES 5
-
+#define MAX_SCORE 100
+#define MIN_SCORE 50
+#define PASS_SCORE 75
 
 void print_line(char CHAR, int length){
     for(int i=0; i<length; i++){
@@ -62,7 +64,7 @@ banner();
  printf("\n");
  
     print_line('=',140);
-    printf("||      ID NUMBER      ||  QUIZ #1  ||  QUIZ #2  ||  QUIZ #3  ||  QUIZ #4  || QUIZ #5   ||  Average  ||  Highest  ||  Lowest  ||  Status  ||\n");
+    printf("||      ID NUMBER      ||  QUIZ #1  ||  QUIZ #2  ||  QUIZ #3  ||  QUIZ #4  || QUIZ #5   ||  AVERAGE  ||  HIGHEST  ||  LOWEST  ||  STATUS  ||\n");
     print_line('=',140);
     for (i=0; i<NUM_OF_STUDENTS; i++) {
     printf("|| %-20s", id[i]);
@@ -73,7 +75,7 @@ banner();
     
     printf("||  %-9.2f||  %-9d||  %-8d||", ave[i], highest[i], lowest[i]);
     
-        if (ave[i] >= 75) {
+        if (ave[i] >= PASS_SCORE) {
           printf("  PASSED  ||\n");
           count_passers++;
         } 
