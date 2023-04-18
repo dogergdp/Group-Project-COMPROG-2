@@ -35,7 +35,7 @@ printf("\n\n");
 printf(" PLEASE NOTE:\n\n"); 
 printf("  This program is designed to receive up to [%d] student IDs and [%d] quiz scores. The range of scores you can input is between [%d] and [%d].", NUM_OF_STUDENTS, NUM_OF_QUIZZES, MIN_SCORE, MAX_SCORE);
 printf("\n"); 
-printf(" The passing average score is set to [%d]\n\n", PASS_SCORE);
+printf(" The passing average score is set to [%d].\n\n", PASS_SCORE);
 printf("  This program is NOT designed to detect multiple duplications of ID numbers and incorrect input of score numbers. In the event of \n");
 printf(" these mistakes, restart the progam.");
 printf("\n\n\n\n");    
