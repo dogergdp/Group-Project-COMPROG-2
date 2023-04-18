@@ -96,7 +96,7 @@ banner();
     
     printf("\n");
     
-    //main line of code that generaates a table
+    //main line of code that generates a table
     
     print_line('=',140);
     printf("||      ID NUMBER      ||  QUIZ #1  ||  QUIZ #2  ||  QUIZ #3  ||  QUIZ #4  || QUIZ #5   ||  AVERAGE  ||  HIGHEST  ||  LOWEST  ||  STATUS  ||\n");
